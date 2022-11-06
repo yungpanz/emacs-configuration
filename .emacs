@@ -19,9 +19,11 @@
 (setq default-frame-alist
       (if (display-graphic-p)
 	  '((tool-bar-lines . 0)
+	    (vertical-scroll-bars . nil)
 	    (width . 80)
 	    (height . 46))
-	'((tool-bar-lines . 0))))
+	'((tool-bar-lines . 0)
+	  (vertical-scroll-bars . nil))))
 
 ;;; Custom keybinds ============================================================
 
