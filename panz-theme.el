@@ -12,6 +12,7 @@
  '(default ((t (:background "honeydew"))))
  '(font-lock-constant-face ((t (:foreground "black" :bold t))))
  '(font-lock-variable-name-face ((t (:foreground "red" :bold t))))
+ '(region ((t (:inherit nil :background "pale green"))))
  ;; blank for future
  )
 
