@@ -21,7 +21,7 @@
 	  '((tool-bar-lines . 0)
 	    (vertical-scroll-bars . nil)
 	    (width . 80)
-	    (height . 46))
+	    (height . 56))
 	'((tool-bar-lines . 0)
 	  (vertical-scroll-bars . nil))))
 
@@ -39,6 +39,20 @@
   (set-frame-width (selected-frame) 80)
   (display-line-numbers-mode -1))
 (global-set-key (kbd "<f6>") 'switch-off-line-numbers)
+
+;;; Custom functions ===========================================================
+
+;;; Insert section comment block for CL source files
+(defun insert-lisp-section-comment-block ()
+  (interactive)
+  (let* ((string
+	 (read-string "Insert section title: " nil nil nil nil))
+	 (line-length 80)
+	 (blank-space-length (- line-length
+				(+ (length string) 5))))
+    (insert-char ?\; 3) (insert-char ?\s 1)
+    (insert string) (insert-char ?\s 1)
+    (insert-char ?\= blank-space-length)))
 
 ;;; Other settings =============================================================
 
