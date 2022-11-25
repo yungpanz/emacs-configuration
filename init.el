@@ -25,6 +25,10 @@
 	'((tool-bar-lines . 0)
 	  (vertical-scroll-bars . nil))))
 
+;; Set font for windows
+(if (eq system-type 'windows-nt)
+    (set-frame-font "Consolas 10" t t))
+
 ;;; Custom keybinds ============================================================
 
 ;; Enable/Disable line numbers
@@ -64,21 +68,10 @@
 ;; Disable backup files and autosaves
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(slime organic-green-theme gruber-darker-theme alect-themes)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;; Set sbcl path
-(setq inferior-lisp-program (shell-command-to-string "which sbcl"))
+(if (eq system-type (or 'darwin
+			'gnu/linux))
+    (setq inferior-lisp-program (shell-command-to-string "which sbcl")))
 
 
